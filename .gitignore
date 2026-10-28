@@ -1,0 +1,20 @@
+# Data and models are never committed (CCDS convention)
+/data/*/*
+!/data/*/.gitkeep
+/models/*
+!/models/.gitkeep
+
+# Generated reports are reproducible from code
+/reports/figures/*
+!/reports/figures/.gitkeep
+/reports/tables/*
+!/reports/tables/.gitkeep
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/

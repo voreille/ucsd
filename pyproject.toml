@@ -1,0 +1,44 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "ucsd_pfs"
+version = "0.1.0"
+description = "Reproduction of the UCSD-PTGBM dataset paper and PFS prediction from the first post-surgery timepoint."
+authors = [{ name = "Valentin Oreiller" }]
+license = { file = "LICENSE" }
+requires-python = ">=3.11,<3.13"
+dependencies = [
+    "loguru",
+    "lifelines",
+    "matplotlib",
+    "numpy",
+    "openpyxl",
+    "pandas",
+    "pyarrow",
+    "requests",
+    "scikit-learn",
+    "scikit-survival",
+    "tabulate",
+    "typer",
+]
+
+[dependency-groups]
+dev = ["ipykernel", "nbconvert", "nbformat", "pytest", "ruff"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["ucsd_pfs"]
+
+[tool.ruff]
+line-length = 99
+src = ["ucsd_pfs", "tests"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "B", "UP"]
+
+[tool.ruff.lint.per-file-ignores]
+"notebooks/*" = ["E501"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
